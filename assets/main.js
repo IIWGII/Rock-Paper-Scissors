@@ -6,17 +6,20 @@ let nbrLost = 0;
 
 function getComputerChoice(){
     const rockPaperScissors = ['rock', 'paper', 'scissors'],
-    randomNumber = Math.floor(Math.random() * rockPaperScissors.length),
-    opponentMove = rockPaperScissors[randomNumber];
+          randomNumber = Math.floor(Math.random() * rockPaperScissors.length),
+          opponentMove = rockPaperScissors[randomNumber];
 
     return opponentMove;
-}
+};
 
 function oneRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
+
         return 'Draw, you bouth selected ' + playerSelection;
-    } else if ((playerSelection === 'rock' && computerSelection ==='paper') ||
+       
+    } 
+        else if ((playerSelection === 'rock' && computerSelection ==='paper') ||
                 (playerSelection === 'paper' && computerSelection ==='scissors') || 
                 (playerSelection === 'scissors' && computerSelection === 'rock')) {
                     nbrLost++;
@@ -44,7 +47,7 @@ function game() {
     } else if (nbrWin > nbrLost) {
         console.log('you won!!!!');
     } else {
-        console.log('You Lost the game!')
+        console.log('You Lost the game!');
     }
 
 };
