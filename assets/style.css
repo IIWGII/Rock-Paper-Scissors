@@ -1,0 +1,54 @@
+body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    margin: auto;
+    background-color: beige;
+    text-align: center;
+}
+.btns-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.btns-container button {
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-color: inherit;
+    height: 200px;
+    width: 200px;
+    transition: .1s ease-in-out;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border-radius: 10px;
+    background-size: 90%;
+    background-position: center;
+
+}
+.btns-container button:hover {
+    border:5px solid white;
+    transform: scale(1.1,1.1);
+    color: gold;
+    background-color: whitesmoke;
+    font-size: 1.5rem;
+    box-shadow: 1px 8px 1px rgba(100, 100, 100, .4);
+}
+
+
+.rock {
+    background-image: url(./images/stone.png);
+}
+.paper {
+    background-image: url(./images/new-document.png);
+}
+.scissors {
+    background-image: url(./images/scissors.png);
+}
+.btns-container .btns-game-end {
+    transform: scale(.9 , .9);
+    color: white;
+    background-color: rgba(79, 79, 79, 0.695);
+    font-size: 1rem;
+}

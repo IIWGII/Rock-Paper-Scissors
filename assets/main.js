@@ -49,6 +49,7 @@ function game() {
 function endGame() {
 
     if (nbrLost >= 5 || nbrWin >= 5) {
+        rockBtn.classList.add("btns-game-end");
         
         replayBtn.style.display = "";
         replayBtn.addEventListener('click', () => {
