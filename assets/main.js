@@ -1,9 +1,9 @@
 const win = 'You won!';
 const lose = 'You lost!';
 
-const playerResults = document.querySelector('.player').querySelector('p')
-const opponentResults = document.querySelector('.opponent').querySelector('p')
-const roundresults = document.querySelector('.results').querySelector('h2');
+const playerResults = document.querySelector('.player').querySelector('p').querySelector('span')
+const opponentResults = document.querySelector('.opponent').querySelector('p').querySelector('span')
+const roundresults = document.querySelector('h2');
 const replayBtn = document.querySelector('.play-again-btn');
 
 const rockBtn = document.querySelector('.rock');
@@ -16,8 +16,8 @@ let nbrLost = 0;
 function initiateGameStats() {
     // initiating DOM content
     roundresults.innerText = "Welcome! choose: Rock, Paper or Scissors"
-    playerResults.innerText = "Your Score :" + nbrWin;
-    opponentResults.innerText = "Opponent score :" + nbrLost;
+    playerResults.innerText = " " + nbrWin + " / 5";
+    opponentResults.innerText = " " + nbrLost + " / 5";
     replayBtn.style.display = "none";
 }
 initiateGameStats();
@@ -50,16 +50,22 @@ function endGame() {
 
     if (nbrLost >= 5 || nbrWin >= 5) {
         rockBtn.classList.add("btns-game-end");
-        
+        paperBtn.classList.add("btns-game-end");
+        scissorsBtn.classList.add("btns-game-end");
         replayBtn.style.display = "";
         replayBtn.addEventListener('click', () => {
             
             replayBtn.style.display = "none";
+            rockBtn.classList.remove("btns-game-end");
+            paperBtn.classList.remove("btns-game-end");
+            scissorsBtn.classList.remove("btns-game-end");
             nbrLost = 0;
             nbrWin = 0;
+            roundresults.style.color = "black";
+            roundresults.style.fontSize = "1.5rem";
             roundresults.innerText = "Welcome again! choose: Rock, Paper or Scissors"
-            playerResults.innerText = "Your Score :" + nbrWin;
-            opponentResults.innerText = "Opponent score :" + nbrLost;
+            playerResults.innerText = " " + nbrWin + " / 5";
+            opponentResults.innerText = " " + nbrLost + " / 5";
             rockBtn.disabled = false;
             paperBtn.disabled = false;
             scissorsBtn.disabled = false;
@@ -69,11 +75,15 @@ function endGame() {
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
         
-        if (nbrWin <= nbrLost) {
+        if (nbrLost <= nbrWin) {
             roundresults.innerText = "Congrats you won the Game!";
+            roundresults.style.color = "green";
+            roundresults.style.fontSize = "2rem";
         }
-        else if (nbrLost <= nbrWin) {
+        else if (nbrLost >= nbrWin) {
             roundresults.innerText = "Oops! you lost the Game!";
+            roundresults.style.color = "red";
+            roundresults.style.fontSize = "2rem";
         }
     }
 };
@@ -101,14 +111,14 @@ function oneRound(playerSelection, computerSelection) {
                 (playerSelection === 'paper' && computerSelection ==='scissors') ||
                 (playerSelection === 'scissors' && computerSelection === 'rock')) {
                     nbrLost++;
-                    opponentResults.innerText = "Opponent score :" + nbrLost;
+                    opponentResults.innerText = " " + nbrLost + " / 5";
 
                     roundresults.innerText = lose + " " + computerSelection + ' beats ' + playerSelection;
     } else if ((playerSelection === 'paper' && computerSelection ==='rock') ||
                (playerSelection === 'scissors' && computerSelection ==='paper') ||
                (playerSelection === 'rock' && computerSelection === 'scissors')) {
                 nbrWin++;
-                playerResults.innerText = "Your Score :" + nbrWin;
+                playerResults.innerText = " " + nbrWin +  " / 5";
                 roundresults.innerText = win + " " + playerSelection + ' beats ' + computerSelection;
     }
 
