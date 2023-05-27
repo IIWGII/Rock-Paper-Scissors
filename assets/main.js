@@ -64,7 +64,8 @@ function endGame() {
             nbrWin = 0;
             roundresults.style.color = "black";
             roundresults.style.fontSize = "1.5rem";
-            roundresults.innerText = "Welcome again! choose: Rock, Paper or Scissors"
+            roundresults.innerText = "Welcome again! choose: Rock, Paper or Scissors";
+            bodyBackground.style.backgroundColor = "beige";
             playerResults.innerText = " " + nbrWin + " / 5";
             opponentResults.innerText = " " + nbrLost + " / 5";
             rockBtn.disabled = false;
