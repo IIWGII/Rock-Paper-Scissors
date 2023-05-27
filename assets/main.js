@@ -4,6 +4,7 @@ const lose = 'You lost!';
 const playerResults = document.querySelector('.player').querySelector('p').querySelector('span')
 const opponentResults = document.querySelector('.opponent').querySelector('p').querySelector('span')
 const roundresults = document.querySelector('h2');
+const bodyBackground = document.querySelector('body');
 const replayBtn = document.querySelector('.play-again-btn');
 
 const rockBtn = document.querySelector('.rock');
@@ -77,13 +78,15 @@ function endGame() {
         
         if (nbrLost <= nbrWin) {
             roundresults.innerText = "Congrats you won the Game!";
-            roundresults.style.color = "green";
+            roundresults.style.color = "white";
             roundresults.style.fontSize = "2rem";
+            bodyBackground.style.backgroundColor = "green";
         }
         else if (nbrLost >= nbrWin) {
             roundresults.innerText = "Oops! you lost the Game!";
-            roundresults.style.color = "red";
+            roundresults.style.color = "white";
             roundresults.style.fontSize = "2rem";
+            bodyBackground.style.backgroundColor = "red";
         }
     }
 };
