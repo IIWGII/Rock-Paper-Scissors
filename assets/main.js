@@ -20,6 +20,7 @@ function initiateGameStats() {
     playerResults.innerText = " " + nbrWin + " / 5";
     opponentResults.innerText = " " + nbrLost + " / 5";
     replayBtn.style.display = "none";
+    bodyBackground.style.backgroundColor = "beige";
 }
 initiateGameStats();
 // game Evevent listeners for buttons
@@ -65,7 +66,6 @@ function endGame() {
             roundresults.style.color = "black";
             roundresults.style.fontSize = "1.5rem";
             roundresults.innerText = "Welcome again! choose: Rock, Paper or Scissors";
-            bodyBackground.style.backgroundColor = "beige";
             playerResults.innerText = " " + nbrWin + " / 5";
             opponentResults.innerText = " " + nbrLost + " / 5";
             rockBtn.disabled = false;
