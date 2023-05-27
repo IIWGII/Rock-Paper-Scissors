@@ -20,7 +20,7 @@ function initiateGameStats() {
     playerResults.innerText = " " + nbrWin + " / 5";
     opponentResults.innerText = " " + nbrLost + " / 5";
     replayBtn.style.display = "none";
-    bodyBackground.style.backgroundColor = "beige";
+    
 }
 initiateGameStats();
 // game Evevent listeners for buttons
@@ -57,6 +57,7 @@ function endGame() {
         replayBtn.style.display = "";
         replayBtn.addEventListener('click', () => {
             
+            bodyBackground.style.backgroundColor = "beige";
             replayBtn.style.display = "none";
             rockBtn.classList.remove("btns-game-end");
             paperBtn.classList.remove("btns-game-end");
